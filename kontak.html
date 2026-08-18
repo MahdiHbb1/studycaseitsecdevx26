@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — DevXperience Codelines 2026</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="kop-surat">
+  <div class="baris-atas">
+    <div>
+      <h1>SISTEM VERIFIKASI PESERTA</h1>
+      <span class="subjudul">DEVXPERIENCE CODELINES 2026 — UKM RIPTEK UNNES</span>
+    </div>
+  </div>
+  <nav class="menu-form" aria-label="Navigasi utama">
+    <a href="index.html">Beranda</a><span class="pemisah">|</span>
+    <a href="profil.html">Profil Panitia</a><span class="pemisah">|</span>
+    <a href="kontak.html">Kontak</a><span class="pemisah">|</span>
+    <a href="kirim-kunci.html">Kirim Kunci</a>
+  </nav>
+</header>
+
+<main>
+  <section class="kartu">
+    <h2>Hubungi Panitia Verifikasi</h2>
+    <p>
+      Ada kendala dengan status verifikasi kamu? Formulir di bawah akan
+      ditutup dalam <span class="hitung-mundur" id="hitungMundur">05:00</span>
+      &mdash; walaupun begitu, formulir ini sebenarnya tidak pernah benar-benar tertutup.
+    </p>
+
+    <form id="formKontak">
+      <div class="grup-input">
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" name="nama" autocomplete="off">
+      </div>
+      <div class="grup-input">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="off">
+      </div>
+      <div class="grup-input">
+        <label for="pesan">Pesan</label>
+        <textarea id="pesan" name="pesan" rows="4"></textarea>
+      </div>
+
+      <div class="captcha-palsu">
+        <input type="checkbox" id="captchaPalsu">
+        <label for="captchaPalsu" style="margin:0;">Saya bukan robot</label>
+        <span id="statusCaptcha"></span>
+      </div>
+
+      <button type="submit" class="tombol">Kirim Pesan</button>
+    </form>
+  </section>
+
+  <section class="kartu">
+    <h2>Log Sistem</h2>
+    <div class="log-sistem">
+      <div><span class="info">[INFO]</span> <span class="spinner-palsu" aria-hidden="true"></span>memuat modul formulir kontak...</div>
+      <div><span class="warn">[WARN]</span> validasi captcha masih dalam mode staging</div>
+      <div><span class="ok">[OK]</span> koneksi SMTP ................ standby</div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 CODELINES — UKM RIPTEK UNNES · Portal ini dibuat khusus untuk seleksi DevXperience.</footer>
+
+<div class="toast-notif" id="toastKirim" role="status">
+  ✅ Pesan tercatat di sistem. Tim kami akan meninjau dalam 1x24 jam kerja.
+</div>
+<div class="toast-notif" id="toastDevtools" role="status">
+  ⚠️ DevTools terdeteksi terbuka. (Bercanda &mdash; lanjut aja cari kuncinya 😄)
+</div>
+
+<script src="script.js"></script>
+
+<!--
+DEV NOTE (jangan sampai kebawa commit, inget2 dulu ya):
+- validasi captcha di atas masih dummy, backend beneran belum jadi, jangan lupa follow up ke tim infra
+- countdown di formulir ini emang sengaja looping, itu bukan bug, jangan diutak-atik lagi
+- FLAG_PROD=DEVX26{teliti_itu_kunci_sebenarnya}  <- INI JANGAN KEBAWA DEPLOY WOI, HAPUS SEBELUM PUBLISH
+- todo: cek lagi kenapa toast kirim kadang delay dikit di mobile
+-->
+</body>
+</html>
